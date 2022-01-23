@@ -1,0 +1,101 @@
+<html
+    __fvdsurfcanyoninserted="1"
+    class="
+        clickberry-extension
+        clickberry-extension-standalone
+        clickberry-extension
+        clickberry-extension-standalone
+        clickberry-extension
+        clickberry-extension-standalone
+    "
+>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 0. Phần icon của website (thay đổi link đến icon nếu bạn muốn sửa nó) -->
+        <link rel="shortcut icon" type="image/png" href="./birthdayCake.png"/>
+
+        <!-- 1. Đây là phần title của website -->
+        <title>Chúc mừng năm mới</title>
+        <link rel="stylesheet" href="./style.css">
+        <script>
+            window.open = function () {};
+            window.print = function () {};
+            // Support hover state for mobile.
+            if (false) {
+                window.ontouchstart = function () {};
+            }
+        </script>
+        <script
+            type="text/javascript"
+            src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"
+        ></script>
+        <meta content="clickberry-extension-here" />
+    </head>
+
+    <body>
+        <link
+            href="https://fonts.googleapis.com/css?family=Wendy+One"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <div class="container">
+            <!-- 2. Dòng chữ Happy Birthday
+            Nếu bạn muốn thêm chữ vào thì phải thay đổi css tương ứng cho nó -->
+            <div class="balloon">
+                <div><span>H</span></div>
+                <div><span>A</span></div>
+                <div><span>P</span></div>
+                <div><span>P</span></div>
+                <div><span>Y</span></div>
+                <div><span>N</span></div>
+                <div><span>E</span></div>
+                <div><span>W</span></div>
+                <div><span>Y</span></div>
+                <div><span>E</span></div>
+                <div><span>A</span></div>
+                <div><span>R</span></div>
+                <div><span>2</span></div>
+                <div><span>0</span></div>
+                <div><span>2</span></div>
+                <div><span>2</span></div>
+            </div>
+            <div class="avatar" id="avt">
+                <!-- 3. Avatar của người bạn muốn gởi lời chúc -->
+                <img src="./caimoi.png" alt="" class="avatar__img" onclick="showMessage()" />
+                <!-- 4. Tên của người đó -->
+                <h1 onclick="showMessage()" class="avatar__title">Nhấp vô ảnh đi nè💘</h1>
+            </div>
+            
+            <!-- 5. Phần nhạc -->
+            <audio id="player" loop>
+                <source src="./hpny" type="audio/mp3">
+            </audio>
+        </div>
+        <script>
+            var x = document.getElementById("player");
+            var avtar = document.getElementById("avt");
+
+            function playmusic() {
+                x.play();
+            }
+
+            avtar.addEventListener("click", playmusic);
+
+            if (document.location.search.match(/type=embed/gi)) {
+                window.parent.postMessage("resize", "*");
+            }
+            function showMessage() {
+                // 6. Lời nhắn hiện ra khi bấm vào tên hoặc avatar
+                swal({
+                    title: "Quỳnh Anh gửi lời nè", // Tiêu đề của popup
+                    text: "Năm hết tết đến kính chúc anh/chị/bạn thật nhiều sức khoẻ, miệng cười vui vẻ, tiền vào mạnh mẽ, làm cái gì cũng được suôn sẻ may mắn, để vẽ lên cuộc đời của riêng mình thật là đẹp đẽ💗 Ai chưa có người yêu sẽ có người yêu,có học bổng và full A+ nhoa😘", // Nội dung lời nhắn
+                    button: {
+                        text: "❤️️",
+                    },
+                    
+                });
+            }
+        </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </body>
+</html>
